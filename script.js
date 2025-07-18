@@ -36,7 +36,7 @@ ScrollReveal({
  ScrollReveal().reveal('.home-body h2, .about-body', { origin:'right' });
 
  const typed=new Typed('.multi',{
-    strings:[' Data Analyst',' Game Developer'],
+    strings:[' Game Developer'],
     typeSpeed:100,
     backSpeed:100,
     backDelay:100,
@@ -50,9 +50,29 @@ function closePopup() {
     document.getElementById("popup").style.display = "none";
 }
 document.querySelector("form").addEventListener("submit", function(event) {
-    event.preventDefault(); 
-    showPopup(); 
+    event.preventDefault(); // Prevent default reload
+
+    const form = event.target;
+    const formData = new FormData(form);
+
+    fetch(form.action, {
+        method: "POST",
+        body: formData,
+        headers: {
+            'Accept': 'application/json'
+        }
+    }).then(response => {
+        if (response.ok) {
+            showPopup();    // Show your popup
+            form.reset();   // Clear the form after sending
+        } else {
+            alert("There was an error sending your message. Please try again.");
+        }
+    }).catch(error => {
+        alert("There was an error sending your message. Please try again.");
+    });
 });
+
 
 
 
