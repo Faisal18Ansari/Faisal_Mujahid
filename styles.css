@@ -212,14 +212,28 @@ section {
     /* or 20rem depending on your exact sizing */
 }
 
+.skills-box {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 0.8s cubic-bezier(.77, 0, .18, 1), transform 0.8s cubic-bezier(.77, 0, .18, 1);
+    will-change: opacity, transform;
+}
+
+.skills-box.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
 .skills-box>i {
     font-size: 6rem;
     color: var(--bgs_color);
 }
 
 .skills-container .skills-box:hover {
-    transform: scale(1.03);
+    transform: scale(1.07) rotate(-2deg);
     border-color: var(--bgs_color);
+    box-shadow: 0 8px 32px 0 rgba(0,171,228,0.25);
+    z-index: 2;
 }
 
 .skills-box>h3 {
@@ -230,6 +244,21 @@ section {
 .skills-box>p {
     font-size: 1.6rem;
     margin: 1rem 0 1rem 0;
+}
+
+.skills-box svg {
+    display: block;
+    margin: 0 auto 10px auto;
+    /* Add more styles as needed */
+}
+.skills-box svg, .skills-box i {
+    transition: transform 0.4s cubic-bezier(.77,0,.18,1);
+}
+
+.skills-box:hover svg,
+.skills-box:hover i {
+    transform: scale(1.2) rotate(6deg);
+    filter: drop-shadow(0 0 8px var(--bgs_color));
 }
 
 .project {
