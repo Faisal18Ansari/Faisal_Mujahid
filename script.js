@@ -36,10 +36,10 @@ ScrollReveal().reveal('.home-body h1, .about img', { origin: 'left' });
 ScrollReveal().reveal('.home-body h2, .about-body', { origin: 'right' });
 
 const typed = new Typed('.multi', {
-    strings: [' Game Developer'],
-    typeSpeed: 100,
-    backSpeed: 100,
-    backDelay: 100,
+    strings: [' Passionate Game Creator','Game Design Enthusiast','Building Worlds, One Game at a Time'],
+    typeSpeed: 60,
+    backSpeed: 60,
+    backDelay: 60,
     loop: true
 });
 function showPopup() {

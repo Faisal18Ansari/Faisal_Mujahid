@@ -26,7 +26,7 @@
         <div class="home-body">
             <h3>Hello, There</h3>
             <h1>I am <span>Faisal Mujahid</span></h1>
-            <h2>An aspiring <span class="multi"></span></h2>
+            <h2><span class="multi"></span></h2>
             <div class="social">
                 <a href="https://www.linkedin.com/in/faisal-mujahid-745168273/" target="_blank"><i
                         class='bx bxl-linkedin'></i></a>
@@ -43,7 +43,9 @@
             <a href="https://drive.google.com/file/d/1w3AP4_vAFUq-yGJUWiY6ivAP2r7tKuZV/view?usp=drive_link"
                 target="_blank" class="btn">Download Resume</a>
         </div>
-        <img src="profile2.png" class="image" alt="Profile Pic">
+        <div class="profile-pic-wrapper">
+            <img src="profile2.png" class="image" alt="Profile Pic">
+        </div>
     </section>
     <section class="about" id="about">
         <!-- <img src="abour.png" class="image" alt="About"> -->
@@ -403,7 +405,22 @@
             revealOnScroll();
         });
     </script>
-    
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const certs = document.querySelectorAll('.certificate-box');
+            function revealCertificates() {
+                const triggerBottom = window.innerHeight * 0.9;
+                certs.forEach((cert, i) => {
+                    const certTop = cert.getBoundingClientRect().top;
+                    if (certTop < triggerBottom) {
+                        setTimeout(() => cert.classList.add('visible'), i * 90);
+                    }
+                });
+            }
+            window.addEventListener('scroll', revealCertificates);
+            revealCertificates();
+        });
+    </script>
 </body>
 
 </html>
